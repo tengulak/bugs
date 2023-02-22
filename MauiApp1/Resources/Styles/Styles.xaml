@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="GBTop">#f6f6fe</Color>
+    <Color x:Key="GBMid1">#988b85</Color>
+    <Color x:Key="GBBottom">#524d53</Color>
+    <Color x:Key="GBPressed">#1f1a17</Color>
+    <LinearGradientBrush x:Key="GBBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource GBTop}" Offset="0"/>
+        <GradientStop Color="{StaticResource GBMid1}" Offset="0.2"/>
+        <GradientStop Color="{StaticResource GBBottom}" Offset="0.5"/>
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="GBBrushPressed" Color="{StaticResource GBPressed}"/>
+    <Color x:Key="BRedTop">#fce1d8</Color>
+    <Color x:Key="BRedMid">#dc2e23</Color>
+    <LinearGradientBrush x:Key="BRedBrush" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="{StaticResource BRedTop}" Offset="0"/>
+        <GradientStop Color="{StaticResource BRedMid}" Offset="0.2"/>
+        <GradientStop Color="{StaticResource BRedMid}" Offset="0.8"/>
+        <GradientStop Color="{StaticResource BRedTop}" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BRedBrushPressed" StartPoint="0,0" EndPoint="0,1">
+        <GradientStop Color="Red" Offset="0"/>
+        <GradientStop Color="Red" Offset="0.2"/>
+        <GradientStop Color="Red" Offset="0.5"/>
+    </LinearGradientBrush>
+
+    <Style TargetType="Button" x:Key="ButtonStyleImageH">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="Background" Value="{StaticResource GBBrush}"/>
+        <Setter Property="BorderWidth" Value="2"/>
+        <Setter Property="BorderColor" Value="Black"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="HeightRequest" Value="70"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="Gray" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource GBBrushPressed}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+    <Style TargetType="Button" x:Key="ButtonStyleImageHRed" BasedOn="{StaticResource ButtonStyleImageH}">
+        <Setter Property="Background" Value="{StaticResource BRedBrush}"/>
+        <Setter Property="BorderColor" Value="White"/>
+        <Setter Property="ContentLayout" Value="Top,0"/>
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="Background" Value="{StaticResource BRedBrushPressed}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
